@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grouprun: false
+  mission: false
+  coachrun: false
+  runner: one
+
+two:
+  grouprun: false
+  mission: false
+  coachrun: false
+  runner: two
