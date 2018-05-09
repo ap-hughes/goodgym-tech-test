@@ -17,8 +17,8 @@ manchester = Area.create!(location: "Manchester")
 
 puts "Finished seeding Locations"
 
-ant = User.create!(email: "ant@goodgym.org", password: "123456", area: london)
-alex = User.create!(email: "alex@goodgym.org", password: "123456", area: manchester)
+ant = User.create!(email: "ant@goodgym.com", password: "123456", area: london)
+alex = User.create!(email: "alex@goodgym.com", password: "123456", area: manchester)
 
 puts "Finished seeding Users"
 
@@ -26,13 +26,13 @@ puts "Finished seeding Users"
 # Nina who is lapsed runner who want to do Group Run only
 # Ivo who is a never_run who want just want to do CoachRun
 
-a = Runner.create!(first_name: "Patrick", email: "patrick@test.com", status: 0, user: ant)
-b = Runner.create!(first_name: "Nina", email: "nina@test.com", status: 1, user: ant)
-c = Runner.create!(first_name: "Ivo", email: "ivo@test.com", status: 2, user: ant)
+a = Runner.create!(first_name: "Patrick", email: "a.p.hughes@live.com", status: 0, user: ant)
+b = Runner.create!(first_name: "Nina", email: "aphughes@talk21.com", status: 1, user: ant)
+c = Runner.create!(first_name: "Ivo", email: "a.p.hughes@live.com", status: 2, user: ant)
 
-d = Runner.create!(first_name: "Jeff", email: "jeff@test.com", status: 2, user: alex)
-e = Runner.create!(first_name: "John", email: "john@test.com", status: 1, user: alex)
-f = Runner.create!(first_name: "Sarah", email: "sarah@test.com", status: 0, user: alex)
+d = Runner.create!(first_name: "Jeff", email: "a.p.hughes@live.com", status: 2, user: alex)
+e = Runner.create!(first_name: "John", email: "a.p.hughes@live.com", status: 1, user: alex)
+f = Runner.create!(first_name: "Sarah", email: "a.p.hughes@live.com", status: 0, user: alex)
 
 puts "Finished seeding Runners"
 
