@@ -1,6 +1,6 @@
 class Runner < ApplicationRecord
-  has_many :preferences
+  has_one :preference
   belongs_to :user
 
-  enum status: [:never_run, :regular, :lapsed]
+  enum status: [:regular, :lapsed, :never_run]
 end

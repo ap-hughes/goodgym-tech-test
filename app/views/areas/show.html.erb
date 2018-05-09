@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center">Create a mailer for <%= @area.location %></h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <p>Use the following form to tailor your emails to the runners in your area.</p>
+      <p><strong>Please note:</strong> Some people like to join us on all three types of run - so try not to repeat yourself.</p>
+      <%= simple_form_for :mail, url: mail_path do |f| %>
+        <h3>Generic bit:</h3>
+        <%= f.input :maincontent, as: :string, label: "The intro line for your email - something interesting going on this week?" %>
+        <h3>Regular Runner interests:</h3>
+        <%= f.input :regulartitle, as: :string, label: "Email title for a regular runner" %>
+        <%= f.input :regulargrouprun, as: :string, label: "Interested in Group Runs, a regular runner" %>
+        <%= f.input :regularmission, as: :string, label: "Interested in Mission Runs, a regular runner" %>
+        <%= f.input :regularcoachrun, as: :string, label: "Interested in Coach Runs, a regular runner" %>
+        <h3>Lapsed Runner interests:</h3>
+        <%= f.input :lapsedtitle, as: :string, label: "Email title for a runner who hasn't been out with us in a while" %>
+        <%= f.input :lapsedgrouprun, as: :string, label: "Interested in Group Runs, hasn't run in a while (> 1 month)" %>
+        <%= f.input :lapsedmission, as: :string, label: "Interested in Mission Runs, hasn't run in a while (> 1 month)" %>
+        <%= f.input :lapsedcoachrun, as: :string, label: "Interested in Coach Runs, hasn't run in a while (> 1 month)" %>
+        <h3>Never-run Runner interests:</h3>
+        <%= f.input :nevertitle, as: :string, label: "Email title for a runner who has yet to come out and join us" %>
+        <%= f.input :nevergrouprun, as: :string, label: "Interested in Group Runs, never run with us" %>
+        <%= f.input :nevermission, as: :string, label: "Interested in Mission Runs, never run with us" %>
+        <%= f.input :nevercoachrun, as: :string, label: "Interested in Coach Runs, never run with us"  %>
+        <%= f.button :submit, "Send" %>
+      <% end %>
+    </div>
+  </div>
+</div>

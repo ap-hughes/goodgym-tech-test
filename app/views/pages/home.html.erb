@@ -1,4 +1,8 @@
-<h1>GoodGym's running locations</h1>
-<% @areas.each do |area| %>
-  <p><%= area.location %></p>
+<% if current_user %>
+  <h1>Your areas</h1>
+  <h3><%= link_to current_user.area.location, areas_path %></h3>
+  <p><%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
+<% else %>
+  <h1>Sign in to see your areas</h1>
+  <p>Sign in to get started mailing <%= link_to "Sign in", new_user_session_path %></p>
 <% end %>

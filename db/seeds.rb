@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Preference.destroy_all
+Runner.destroy_all
+User.destroy_all
 Area.destroy_all
 
 puts "Starting testing parameters seed"
@@ -23,13 +26,13 @@ puts "Finished seeding Users"
 # Nina who is lapsed runner who want to do Group Run only
 # Ivo who is a never_run who want just want to do CoachRun
 
-a = Runner.create!(first_name: "Patrick", status: 0, user: ant)
-b = Runner.create!(first_name: "Nina", status: 1, user: ant)
-c = Runner.create!(first_name: "Ivo", status: 2, user: ant)
+a = Runner.create!(first_name: "Patrick", email: "patrick@test.com", status: 0, user: ant)
+b = Runner.create!(first_name: "Nina", email: "nina@test.com", status: 1, user: ant)
+c = Runner.create!(first_name: "Ivo", email: "ivo@test.com", status: 2, user: ant)
 
-d = Runner.create!(first_name: "Jeff", status: 2, user: alex)
-e = Runner.create!(first_name: "John", status: 1, user: alex)
-f = Runner.create!(first_name: "Sarah", status: 0, user: alex)
+d = Runner.create!(first_name: "Jeff", email: "jeff@test.com", status: 2, user: alex)
+e = Runner.create!(first_name: "John", email: "john@test.com", status: 1, user: alex)
+f = Runner.create!(first_name: "Sarah", email: "sarah@test.com", status: 0, user: alex)
 
 puts "Finished seeding Runners"
 
