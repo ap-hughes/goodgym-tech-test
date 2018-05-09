@@ -10,6 +10,7 @@ class AreasController < ApplicationController
   end
 
   def mail
+    #Grab content from form
     main_content = params[:mail][:maincontent]
     regular_title = params[:mail][:regulartitle]
     regular_grouprun = params[:mail][:regulargrouprun]
@@ -23,8 +24,10 @@ class AreasController < ApplicationController
     never_grouprun = params[:mail][:nevergrouprun]
     never_mission = params[:mail][:nevermission]
     never_coachrun = params[:mail][:nevercoachrun]
-    raise
-    Mailer.mail_method(main_content,
+    runners = current_user.runners
+    user = current_user
+    #Send content by email
+    RunnerMailer.bespoke_email(user, runners, main_content,
     regular_title,
     regular_grouprun,
     regular_mission,
@@ -37,5 +40,8 @@ class AreasController < ApplicationController
     never_grouprun,
     never_mission,
     never_coachrun).deliver
+    #Redirect user
+    redirect_to areas_path
+    flash[:alert] = "Emails sent!"
   end
 end
