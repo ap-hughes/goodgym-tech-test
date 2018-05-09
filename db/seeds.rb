@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Area.destroy_all
+
 puts "Starting testing parameters seed"
 london = Area.create!(location: "London")
 manchester = Area.create!(location: "Manchester")
