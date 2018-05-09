@@ -1,4 +1,13 @@
-<h1>GoodGym's running locations</h1>
-<% @areas.each do |area| %>
-  <p><%= area.location %></p>
-<% end %>
+<div class="container">
+  <h1 class="text-center">GoodGym's running locations</h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <% @areas.each do |area| %>
+        <p><%= link_to area.location, area_path(area) %></p>
+      <% end %>
+      <% if current_user %>
+        <p><strong><%= link_to "Sign out", destroy_user_session_path, method: :delete %></strong></p>
+      <% end %>
+    </div>
+  </div>
+</div>
