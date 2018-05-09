@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Mailer testing and previewing
 gem "letter_opener", :group => :development
 # Users
 gem 'devise'
