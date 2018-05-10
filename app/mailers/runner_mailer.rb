@@ -14,8 +14,7 @@ class RunnerMailer < ApplicationMailer
     never_coachrun)
     @user = user
     @main_content = main_content
-    @runners = runners
-    @runners.each do |runner|
+    runners.each do |runner|
       @name = runner.first_name
       case runner.status
       when "regular" #for regular runner
@@ -33,13 +32,13 @@ class RunnerMailer < ApplicationMailer
 
   def regular_runner(runner, regular_grouprun, regular_mission, regular_coachrun)
     if runner.preference.grouprun && runner.preference.mission && runner.preference.coachrun
-      regular_grouprun + regular_mission + regular_coachrun
+      regular_grouprun + "\r\r" + regular_mission + "\r\r" + regular_coachrun
     elsif runner.preference.grouprun && runner.preference.mission
-      regular_grouprun + regular_mission
+      regular_grouprun + "\r\r" + regular_mission
     elsif runner.preference.mission && runner.preference.coachrun
-      regular_mission + regular_coachrun
+      regular_mission + "\r\r" + regular_coachrun
     elsif runner.preference.grouprun && runner.preference.coachrun
-      regular_grouprun + regular_coachrun
+      regular_grouprun + "\r\r" + regular_coachrun
     elsif runner.preference.grouprun
       regular_grouprun
     elsif runner.preference.mission
@@ -53,13 +52,13 @@ class RunnerMailer < ApplicationMailer
 
   def lapsed_runner(runner, lapsed_grouprun, lapsed_mission, lapsed_coachrun)
     if runner.preference.grouprun && runner.preference.mission && runner.preference.coachrun
-      lapsed_grouprun + lapsed_mission + lapsed_coachrun
+      lapsed_grouprun + "\r\r" + lapsed_mission + "\r\r" + lapsed_coachrun
     elsif runner.preference.grouprun && runner.preference.mission
-      lapsed_grouprun + lapsed_mission
+      lapsed_grouprun + "\r\r" + lapsed_mission
     elsif runner.preference.mission && runner.preference.coachrun
-      lapsed_mission + lapsed_coachrun
+      lapsed_mission + "\r\r" + lapsed_coachrun
     elsif runner.preference.grouprun && runner.preference.coachrun
-      lapsed_grouprun + lapsed_coachrun
+      lapsed_grouprun + "\r\r" + lapsed_coachrun
     elsif runner.preference.grouprun
       lapsed_grouprun
     elsif runner.preference.mission
@@ -73,13 +72,13 @@ class RunnerMailer < ApplicationMailer
 
   def never_run_runner(runner, never_grouprun, never_mission, never_coachrun)
     if runner.preference.grouprun && runner.preference.mission && runner.preference.coachrun
-      never_grouprun + never_mission + never_coachrun
+      never_grouprun + "\r\r" + never_mission + "\r\r" + never_coachrun
     elsif runner.preference.grouprun && runner.preference.mission
-      never_grouprun + never_mission
+      never_grouprun + "\r\r" + never_mission
     elsif runner.preference.mission && runner.preference.coachrun
-      never_mission + never_coachrun
+      never_mission + "\r\r" + never_coachrun
     elsif runner.preference.grouprun && runner.preference.coachrun
-      never_grouprun + never_coachrun
+      never_grouprun + "\r\r" + never_coachrun
     elsif runner.preference.grouprun
       never_grouprun
     elsif runner.preference.mission

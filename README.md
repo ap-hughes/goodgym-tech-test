@@ -55,6 +55,7 @@ The programme is run in a development environment. SMTP settings, etc. have not 
 <h3>Areas for improvement</h3>
 
 * Tests
-* Both runners and trainers would use a devise model for authentication. Currently the users (trainers) are from devise, the runners belong to the users.
-* The UI / UX of the app could be improved. It is currently functional but very bland. It is not immediately clear what the user should do.
-* Setting up a preview of the emails, so trainers could see a finalised email and check it before they press send.
+* Further checks on each area to prevent the wrong trainer from sending emails to the wrong area
+* Both runners and trainers would use a devise model for authentication. Currently the users (trainers) are from devise, the runners are ina  separate table and 'belong to' the users.
+* The UI / UX of the app could be improved. It is currently functional but very bland. It is not immediately clear what the trainer should do.
+* Setting up a preview of the emails, so trainers could see a finalised email and check it before they press send for each status and preference case of the runner.
