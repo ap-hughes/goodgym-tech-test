@@ -1,5 +1,5 @@
 class RunnerMailer < ApplicationMailer
-  def bespoke_email(user, runners, main_content,
+  def bespoke_email(user, runner, main_content,
     regular_title,
     regular_grouprun,
     regular_mission,
@@ -14,19 +14,17 @@ class RunnerMailer < ApplicationMailer
     never_coachrun)
     @user = user
     @main_content = main_content
-    runners.each do |runner|
-      @name = runner.first_name
-      case runner.status
-      when "regular" #for regular runner
-        @bespoke_content = regular_runner(runner, regular_grouprun, regular_mission, regular_coachrun)
-        mail(to: runner.email, subject: regular_title, reply_to: @user.email)
-      when "lapsed" #for lapsed runner
-        @bespoke_content = lapsed_runner(runner, lapsed_grouprun, lapsed_mission, lapsed_coachrun)
-        mail(to: runner.email, subject: lapsed_title, reply_to: @user.email)
-      when "never_run" #for never_run runner
-        @bespoke_content = never_run_runner(runner, never_grouprun, never_mission, never_coachrun)
-        mail(to: runner.email, subject: never_title, reply_to: @user.email)
-      end
+    @name = runner.first_name
+    case runner.status
+    when "regular" #for regular runner
+      @bespoke_content = regular_runner(runner, regular_grouprun, regular_mission, regular_coachrun)
+      mail(to: runner.email, subject: regular_title, reply_to: @user.email)
+    when "lapsed" #for lapsed runner
+      @bespoke_content = lapsed_runner(runner, lapsed_grouprun, lapsed_mission, lapsed_coachrun)
+      mail(to: runner.email, subject: lapsed_title, reply_to: @user.email)
+    when "never_run" #for never_run runner
+      @bespoke_content = never_run_runner(runner, never_grouprun, never_mission, never_coachrun)
+      mail(to: runner.email, subject: never_title, reply_to: @user.email)
     end
   end
 
