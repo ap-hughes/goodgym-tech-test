@@ -32,20 +32,24 @@ class AreasController < ApplicationController
     never_coachrun = params[:mail][:nevercoachrun]
     runners = current_user.runners
     user = current_user
-    #Send content by email
-    RunnerMailer.bespoke_email(user, runners, main_content,
-    regular_title,
-    regular_grouprun,
-    regular_mission,
-    regular_coachrun,
-    lapsed_title,
-    lapsed_grouprun,
-    lapsed_mission,
-    lapsed_coachrun,
-    never_title,
-    never_grouprun,
-    never_mission,
-    never_coachrun).deliver
+
+    #Loop over runners
+    runners.each do |runner|
+      RunnerMailer.bespoke_email(user, runner, main_content,
+      regular_title,
+      regular_grouprun,
+      regular_mission,
+      regular_coachrun,
+      lapsed_title,
+      lapsed_grouprun,
+      lapsed_mission,
+      lapsed_coachrun,
+      never_title,
+      never_grouprun,
+      never_mission,
+      never_coachrun).deliver
+    end
+
     #Redirect user
     redirect_to areas_path
     flash[:alert] = "Emails sent!"
